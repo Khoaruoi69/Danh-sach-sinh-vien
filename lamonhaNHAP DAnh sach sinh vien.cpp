@@ -1,13 +1,13 @@
-#include<stdio.h>
-#include<conio.h>
-#include<stdlib.h>
-#include<string.h>
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <string.h>
 void nhapn(int&n){
 do{
-	printf("\nso luong sinh vien muon nhap:%d",n);
+	printf("\nEnter the number of students:%d",n);
 	scanf("%d",&n);
 	if(n<0){
-		printf("\nnhap sai nhap lai");
+		printf("\nEnter wrong, please enter again!");
 	}
 }while(n<0);
 }
