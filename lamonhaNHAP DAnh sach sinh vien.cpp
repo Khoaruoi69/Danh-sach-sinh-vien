@@ -13,55 +13,55 @@ do{
 }
 struct sinhvien{
 
-	char hovaten[30];
-	char massv[10];
-	char muontimsinhvien[10];
-	char lop[10];
-	int namsinh;
-	int ngay;
-	int thang;
-	int nam;
-	char gioitinh;
-	float ly,toan,tin,DTB;
+	char students[30];
+	char studentId[10];
+	char studentSeek[10];
+	char class[10];
+	int yearofbird;
+	int day;
+	int month;
+	int year;
+	char gender;
+	float physics,math,it,Avg;
 };
 typedef struct sinhvien sv;
 
 void NDS1TSV(sv &a){
 	fflush(stdin);
-	printf("\nnhap ho ten sinh vien: "); gets(a.hovaten);
+	printf("\nEnter the student's year: "); gets(a.students);
 	fflush(stdin);
-	printf("\nnhap ma so sinh vien: "); gets (a.massv);
+	printf("\nEnter student number: "); gets (a.studentId);
 	fflush(stdin);
-	printf("\nnhap lop: "); gets(a.lop);
+	printf("\nEnter class year: "); gets(a.class);
 /*	fflush(stdin);
-	printf("nhap nam sinh: "); scanf("%d",&a.namsinh);*/
+	printf("nhap year sinh: "); scanf("%d",&a.yearofbird);*/
 ///////////////////////////////////////////////////////
 	fflush(stdin);	
 	do{
-		printf("\ngioi tinh (Nam: Y/Nu: X):");
-		a.gioitinh=getche();
-		if(a.gioitinh!='X'&&a.gioitinh!='Y'){
-			printf("\nnhap sai");
+		printf("\nGender (Male: Y/Female: X):");
+		a.gender=getche();
+		if(a.gender!='X'&&a.gender!='Y'){
+			printf("\nwrong input");
 		}
-	}while(a.gioitinh!='X'&&a.gioitinh!='Y');
-	if(a.gioitinh=='X'){
-		printf("\ngioi tinh: Nu");
+	}while(a.gender!='X'&&a.gender!='Y');
+	if(a.gender=='X'){
+		printf("\nGender: Female");
 	}
 	else{
-		printf("\ngioi tinh: Nam");
+		printf("\nGender: Male");
 	}
 ///////////////////////////////////////////////////////
 	fflush(stdin);
-		printf("\n nhap ngay /thang/ nam sinh: ");
-	printf("\nnhap nam: "); scanf("%d",&a.nam);
+		printf("\n Enter date/month/year of birth: ");
+	printf("\nYear: "); scanf("%d",&a.year);
 	do{
-		printf("\nnhap thang: "); scanf("%d",&a.thang);
-		if(a.thang<1||a.thang>12){
-			printf("\nnhap sai thang nhap lai ");
+		printf("\nMonth: "); scanf("%d",&a.month);
+		if(a.month<1||a.month>12){
+			printf("\nEnter wrong, re-enter! ");
 		}
-	} while(a.thang<1||a.thang>12);
+	} while(a.month<1||a.month>12);
 	
-	switch (a.thang){
+	switch (a.month){
 		case 1:
 		case 3:
 		case 5:
@@ -70,11 +70,11 @@ void NDS1TSV(sv &a){
 		case 10:
 		case 12:
 	    do{
-	    	printf("\nnhap ngay sinh: "); scanf("%d",&a.ngay);
-	    	if(a.ngay>31||a.ngay<1){
-	    		printf("\nnhap sai nagy trong thang %d nhap lai",a.thang);
+	    	printf("\nEnter date of birth: "); scanf("%d",&a.day);
+	    	if(a.day>31||a.day<1){
+	    		printf("\nEnter the wrong day of the month %d re-enter!",a.month);
 			}
-		}while(a.ngay>31||a.ngay<1);
+		}while(a.day>31||a.day<1);
 		break;	
 	{
 		case 4:
@@ -82,39 +82,39 @@ void NDS1TSV(sv &a){
 		case 9:
 		case 11:
 			do{
-				printf("\nnhap ngay sinh: "); scanf("%d",&a.ngay);
-			if(a.ngay>30||a.ngay<1){
-				printf("\nnhap sai nagy trong thang %d nhap lai",a.thang);
+				printf("\nEnter date of birth: "); scanf("%d",&a.day);
+			if(a.day>30||a.day<1){
+				printf("\nEnter the wrong day of the month %d re-enter!",a.month);
 			}
-	}while(a.ngay>30|| a.ngay<1);
+	}while(a.day>30|| a.day<1);
 		break;
 	} 
 	{
 		case 2: 
-		if(a.nam%4==0&&a.nam%100!=0){
+		if(a.year%4==0&&a.year%100!=0){
 		do{
-				printf("\nnhap ngay sinh: "); scanf("%d",&a.ngay);
-			if(a.ngay>29||a.ngay<1){
-				printf("\nnhap sai nagy trong thang %d nhap lai",a.thang);
+				printf("\nnhap day sinh: "); scanf("%d",&a.day);
+			if(a.day>29||a.day<1){
+				printf("\nnhap sai nagy trong month %d nhap lai",a.month);
 			}
-		}while(a.ngay>29|| a.ngay<1);
+		}while(a.day>29|| a.day<1);
 	}
 	else{
 		do{
-				printf("\nnhap ngay sinh: "); scanf("%d",&a.ngay);
-			if(a.ngay>28||a.ngay<1){
-				printf("\nnhap sai nagy trong thang %d nhap lai",a.thang);
+				printf("\nnhap day sinh: "); scanf("%d",&a.day);
+			if(a.day>28||a.day<1){
+				printf("\nnhap sai nagy trong month %d nhap lai",a.month);
 			}
-		}while(a.ngay>28|| a.ngay<1);
+		}while(a.day>28|| a.day<1);
 	}
 		break;
 		}
 }
-    printf("\nngay/thang/nam sinh: %d/%d/%d",a.ngay,a.thang,a.nam);
-	printf("\nnhap diem toan: "); scanf("%f",&a.toan);
-	printf("\nnhap diem ly: "); scanf("%f",&a.ly);
-	printf("\nnhap diem tin: "); scanf("%f",&a.tin);
-	a.DTB=(a.toan+a.ly+a.tin)/3;
+    printf("\nday/month/year sinh: %d/%d/%d",a.day,a.month,a.year);
+	printf("\nnhap diem math: "); scanf("%f",&a.math);
+	printf("\nnhap diem physics: "); scanf("%f",&a.physics);
+	printf("\nnhap diem it: "); scanf("%f",&a.it);
+	a.Avg=(a.math+a.physics+a.it)/3;
 		printf("\n++++++++++++++++++");
 }
 ///////////////////////////////////////////////////////////
@@ -128,21 +128,21 @@ void NDSTSV(sv s[],int n)
 /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
 void XDS1TSV(sv a){
-	printf("\nHo va ten: "); puts(a.hovaten);
-	printf("\nMSSV: "); puts(a.massv);
-	printf("\nLop: "); puts(a.lop);
-/*	printf("\nNam sinh: %d",a.namsinh);*/
-    printf("\nngay/thang/nam sinh: %d/%d/%d",a.ngay,a.thang,a.nam);
-	if(a.gioitinh=='X'){
-	printf("\ngioi tinh: Nu");
+	printf("\nHo va ten: "); puts(a.students);
+	printf("\nMSSV: "); puts(a.studentId);
+	printf("\nclass: "); puts(a.class);
+/*	printf("\nyear sinh: %d",a.yearofbird);*/
+    printf("\nday/month/year sinh: %d/%d/%d",a.day,a.month,a.year);
+	if(a.gender=='X'){
+	printf("\ngioi ith: Nu");
 	}
 	else{
-		printf("\ngioi tinh: Nam");
+		printf("\ngioi ith: year");
 	}
-	printf("\nDiem Toan: %0.2f",a.toan);
-	printf("\nDiem Ly: %0.2f",a.ly);
-	printf("\nDiem Tin: %0.2f",a.tin);
-	printf("\nDiem trung binh: %0.2f",a.DTB);
+	printf("\nDiem math: %0.2f",a.math);
+	printf("\nDiem physics: %0.2f",a.physics);
+	printf("\nDiem it: %0.2f",a.it);
+	printf("\nDiem trung binh: %0.2f",a.Avg);
 
 }
 ////////////////////////////////////////////////////////////
@@ -150,7 +150,7 @@ void XDS1TSV(sv a){
 
 	
 void XDSTSV(sv s[],int n) {
-	printf("\n\t\t****Thong tin sinh vien*****");
+	printf("\n\t\t****Thong it sinh vien*****");
 	for(int i=0;i<n;i++){
 		printf("\nSinh vien thu %d la: ",i);
 		XDS1TSV(s[i]);
@@ -162,7 +162,7 @@ void XDSSVNu(sv s[],int n){
 	printf("\n\t\t****** Danh sach sinh vien nu ******");
 	int flag =0;
 	for(int i=0;i<n;i++){
-		if(s[i].gioitinh=='X'){
+		if(s[i].gender=='X'){
 			XDS1TSV(s[i]);
 			printf("\n*******************");
 			flag =1;
@@ -173,18 +173,18 @@ void XDSSVNu(sv s[],int n){
 	}
 }
 ////////////////////////////////////////////////////////////
-void XDSSVNam(sv s[],int n){
-	printf("\n\t\t******Danh sach sinh vien nam *******");
+void XDSSVyear(sv s[],int n){
+	printf("\n\t\t******Danh sach sinh vien year *******");
 	int flag=0;
 	for(int i=0;i<n;i++){
-		if(s[i].gioitinh=='Y'){
+		if(s[i].gender=='Y'){
 			XDS1TSV(s[i]);
 			printf("\n*********************");
 			flag=1;
 		}
 	}
 	if(flag==0)
-	printf("\n ko co sinh vien nam :)");
+	printf("\n ko co sinh vien year :)");
 }
 ////////////////
 ////////////////////////////////////////////////////////////
@@ -192,7 +192,7 @@ void DSSVTLai(sv s[],int n){
 	printf("\n\t\t****** Danh sach sinh vien thi lai******");
 	int flag=0;
 	for(int i=0;i<n;i++){
-		if(s[i].DTB<5){
+		if(s[i].Avg<5){
 			XDS1TSV(s[i]);
 			printf("\n........................");
 			flag=1;
@@ -205,14 +205,14 @@ void DSSVTLai(sv s[],int n){
 void timMSSV (sv s[],int n){
 	int search;
 	int flag=0;
-	char hovaten[30];
-	char massv[10];
+	char students[30];
+	char studentId[10];
 
 	do{
-	printf("\n ==========tim kiem thong tin sinh vien=============");
+	printf("\n ==========tim kiem thong it sinh vien=============");
 	printf("\nnhap '10' tim kiem thong tim theo ma so sinh vien");
 	printf("\nnhap '11' tim kiem thong tim theo ten sv ");
-	printf("\nnhap '12' de sua thong tin sinh vien");
+	printf("\nnhap '12' de sua thong it sinh vien");
 	printf("\nnhap '20'de thoat tim kiem ");
 	printf("\n Anh chon cai gi !!! nhanh di: ");
 	scanf("%d",&search);
@@ -221,14 +221,14 @@ void timMSSV (sv s[],int n){
 		case 10:{
 			printf("\nnhap ma so sinh vien muon tim: \t");
 			fflush(stdin);
-			gets(massv);
+			gets(studentId);
 			for(int i=0;i<n;i++){
-				if(strcmp(massv,s[i].massv)==0){
+				if(strcmp(studentId,s[i].studentId)==0){
 					XDS1TSV(s[i]);
 					flag ++;
 				}
 				if(flag==0){
-					printf("\n khong co sinh vien nao co ma so sinh vien: %s",massv);
+					printf("\n khong co sinh vien nao co ma so sinh vien: %s",studentId);
 				}
 			}
 		
@@ -237,58 +237,58 @@ void timMSSV (sv s[],int n){
 		case 11: {
 			printf("search sv theo ten ");
 			fflush(stdin);
-			gets(hovaten);
+			gets(students);
 			for(int i=0;i<n;i++){
-				if(strcmp(hovaten,s[i].hovaten)==0){
+				if(strcmp(students,s[i].students)==0){
 					XDS1TSV(s[i]);
 					flag ++;
 				}
 			}
 			if(flag==0){
-				printf("\n ko cco sinh vien nao ten: %s",hovaten);
+				printf("\n ko cco sinh vien nao ten: %s",students);
 		}
 			break;
 		}
 		case 12: {
-			printf("\n====================== chinh sua thong tin sinh vien======");
+			printf("\n====================== chinh sua thong it sinh vien======");
 			for(int i=0;i<n;i++){
-				if(strcmp(massv,s[i].massv)==0){
-					printf("\nchinh sua thong tin sinh vien ma so:%s",massv);
+				if(strcmp(studentId,s[i].studentId)==0){
+					printf("\nchinh sua thong it sinh vien ma so:%s",studentId);
 					fflush(stdin);
-					printf("\nnhap ho ten sinh vien: "); gets(s[i].hovaten);
+					printf("\nnhap ho ten sinh vien: "); gets(s[i].students);
 					fflush(stdin);
-					printf("\nnhap ma so sinh vien: "); gets (s[i].massv);
+					printf("\nnhap ma so sinh vien: "); gets (s[i].studentId);
 					fflush(stdin);
-					printf("\nnhap lop: "); gets(s[i].lop);
+					printf("\nnhap class: "); gets(s[i].class);
 				/*	fflush(stdin);
-					printf("nhap nam sinh: "); scanf("%d",&a.namsinh);*/
+					printf("nhap year sinh: "); scanf("%d",&a.yearofbird);*/
 				///////////////////////////////////////////////////////
 					fflush(stdin);	
 					do{
-						printf("\ngioi tinh (Nam: Y/Nu: X):");
-						s[i].gioitinh=getche();
-						if(s[i].gioitinh!='X'&&s[i].gioitinh!='Y'){
+						printf("\ngioi ith (year: Y/Nu: X):");
+						s[i].gender=getche();
+						if(s[i].gender!='X'&&s[i].gender!='Y'){
 							printf("\nnhap sai");
 						}
-					}while(s[i].gioitinh!='X'&&s[i].gioitinh!='Y');
-					if(s[i].gioitinh=='X'){
-						printf("\ngioi tinh: Nu");
+					}while(s[i].gender!='X'&&s[i].gender!='Y');
+					if(s[i].gender=='X'){
+						printf("\ngioi ith: Nu");
 					}
 					else{
-						printf("\ngioi tinh: Nam");
+						printf("\ngioi ith: year");
 					}
 				///////////////////////////////////////////////////////
 					fflush(stdin);
-						printf("\n nhap ngay /thang/ nam sinh: ");
-					printf("\nnhap nam: "); scanf("%d",&s[i].nam);
+						printf("\n nhap day /month/ year sinh: ");
+					printf("\nnhap year: "); scanf("%d",&s[i].year);
 					do{
-						printf("\nnhap thang: "); scanf("%d",&s[i].thang);
-						if(s[i].thang<1||s[i].thang>12){
-							printf("\nnhap sai thang nhap lai ");
+						printf("\nnhap month: "); scanf("%d",&s[i].month);
+						if(s[i].month<1||s[i].month>12){
+							printf("\nnhap sai month nhap lai ");
 						}
-					} while(s[i].thang<1||s[i].thang>12);
+					} while(s[i].month<1||s[i].month>12);
 					
-					switch (s[i].thang){
+					switch (s[i].month){
 						case 1:
 						case 3:
 						case 5:
@@ -297,11 +297,11 @@ void timMSSV (sv s[],int n){
 						case 10:
 						case 12:
 					    do{
-					    	printf("\nnhap ngay sinh: "); scanf("%d",&s[i].ngay);
-					    	if(s[i].ngay>31||s[i].ngay<1){
-					    		printf("\nnhap sai nagy trong thang %d nhap lai",s[i].thang);
+					    	printf("\nnhap day sinh: "); scanf("%d",&s[i].day);
+					    	if(s[i].day>31||s[i].day<1){
+					    		printf("\nnhap sai nagy trong month %d nhap lai",s[i].month);
 							}
-						}while(s[i].ngay>31||s[i].ngay<1);
+						}while(s[i].day>31||s[i].day<1);
 						break;	
 					{
 						case 4:
@@ -309,39 +309,39 @@ void timMSSV (sv s[],int n){
 						case 9:
 						case 11:
 							do{
-								printf("\nnhap ngay sinh: "); scanf("%d",&s[i].ngay);
-							if(s[i].ngay>30||s[i].ngay<1){
-								printf("\nnhap sai nagy trong thang %d nhap lai",s[i].thang);
+								printf("\nnhap day sinh: "); scanf("%d",&s[i].day);
+							if(s[i].day>30||s[i].day<1){
+								printf("\nnhap sai nagy trong month %d nhap lai",s[i].month);
 							}
-					}while(s[i].ngay>30|| s[i].ngay<1);
+					}while(s[i].day>30|| s[i].day<1);
 						break;
 					} 
 					{
 						case 2: 
-						if(s[i].nam%4==0&&s[i].nam%100!=0){
+						if(s[i].year%4==0&&s[i].year%100!=0){
 						do{
-								printf("\nnhap ngay sinh: "); scanf("%d",&s[i].ngay);
-							if(s[i].ngay>29||s[i].ngay<1){
-								printf("\nnhap sai nagy trong thang %d nhap lai",s[i].thang);
+								printf("\nnhap day sinh: "); scanf("%d",&s[i].day);
+							if(s[i].day>29||s[i].day<1){
+								printf("\nnhap sai nagy trong month %d nhap lai",s[i].month);
 							}
-						}while(s[i].ngay>29|| s[i].ngay<1);
+						}while(s[i].day>29|| s[i].day<1);
 					}
 					else{
 						do{
-								printf("\nnhap ngay sinh: "); scanf("%d",&s[i].ngay);
-							if(s[i].ngay>28||s[i].ngay<1){
-								printf("\nnhap sai nagy trong thang %d nhap lai",s[i].thang);
+								printf("\nnhap day sinh: "); scanf("%d",&s[i].day);
+							if(s[i].day>28||s[i].day<1){
+								printf("\nnhap sai nagy trong month %d nhap lai",s[i].month);
 							}
-						}while(s[i].ngay>28|| s[i].ngay<1);
+						}while(s[i].day>28|| s[i].day<1);
 					}
 				break;
 				}
 		}
-		    printf("\nngay/thang/nam sinh: %d/%d/%d",s[i].ngay,s[i].thang,s[i].nam);
-			printf("\nnhap diem toan: "); scanf("%f",&s[i].toan);
-			printf("\nnhap diem ly: "); scanf("%f",&s[i].ly);
-			printf("\nnhap diem tin: "); scanf("%f",&s[i].tin);
-			s[i].DTB=(s[i].toan+s[i].ly+s[i].tin)/3;
+		    printf("\nday/month/year sinh: %d/%d/%d",s[i].day,s[i].month,s[i].year);
+			printf("\nnhap diem math: "); scanf("%f",&s[i].math);
+			printf("\nnhap diem physics: "); scanf("%f",&s[i].physics);
+			printf("\nnhap diem it: "); scanf("%f",&s[i].it);
+			s[i].Avg=(s[i].math+s[i].physics+s[i].it)/3;
 				printf("\n++++++++++++++++++");
 		}
 				}
@@ -356,18 +356,18 @@ void timMSSV (sv s[],int n){
   } while(search !=12);
 }
 /////////////
-void ghiFile(sv s[],int n, char*FileName){
+void ghiFile(sv s[],int n, char*Fileyeare){
 	FILE*k;
-	k=fopen(FileName,"a+");
+	k=fopen(Fileyeare,"a+");
 	fwrite(&n,sizeof(n),1,k);
 	for(int i=0;i<n;i++){
 		fwrite(&s[i],sizeof(s[i]),1,k);
 	}
 	fclose(k);
 }
-void docFile(sv s[],int n, char*FileName){
+void docFile(sv s[],int n, char*Fileyeare){
 	FILE*k;
-	k=fopen(FileName,"a+");
+	k=fopen(Fileyeare,"a+");
 	fread(&n,sizeof(n),1,k);
 	for(int i=0;i<n;i++){
 		fread(&s[i],sizeof(s[i]),1,k);
@@ -390,20 +390,20 @@ int main (){
 	NDSTSV(s,n);
 	XDSTSV(s,n);
 	XDSSVNu(s,n);
-	XDSSVNam(s,n);
+	XDSSVyear(s,n);
 	DSSVTLai(s,n);*/
 	int chon;
 	do{
 	system("cls");
 	printf("\n1: de nhap DSTSV ");
 	printf("\n2: de xuat XDSTSV ");
-	printf("\n3: de xuat XDSSVNam ");
+	printf("\n3: de xuat XDSSVyear ");
 	printf("\n4: de xuat XDSSNu ");
 	printf("\n5: de xuat DDSVTlai ");
 	printf("\n6: de ghi file ");
 	printf("\n7: de doc File ");
 	printf("\n9: them sinh vien ");
-	printf("\n8: tim sinh vien co ma so, tim sinh vien bang ten, sua doi thong tin sinh vien");
+	printf("\n8: tim sinh vien co ma so, tim sinh vien bang ten, sua doi thong it sinh vien");
 	printf("\n0: de thoat chuong trinh");
 	printf("\n------------------------\n");
 	printf("\n nhap so cho cong viec ban muon chon: ");
@@ -423,7 +423,7 @@ int main (){
 			break;
 		}
 		case 3:{
-			XDSSVNam(s,n);
+			XDSSVyear(s,n);
 			system("pause");
 			break;
 		}
